@@ -6,9 +6,16 @@ Financial econometrics small project
 The goal of this project is to apply a particular statistical arbitrage strategy using the property of cointegration between assets in a stochastic volatility framework: pair trading.
 Pair trading is a quantitative market neutral investment strategy where a pair of assets is formed in order to benefit from the spread between the couple. In our case, we’ll follow a specific decision criterion defined by a Z-score, which will inform when to buy one asset while selling the other.
 One could argue that in specific economies, there could be couple of assets which have roughly the same risks and therefore the same expected returns since they are associated with similar risk factors. In the long run, we could think of a mean-reverting process such that the two (or more) assets will eventually come back to their original mean, meaning that, in the long run, they behave the same way.
-For illustration, the crude oil market is dominated by two main grades which serves as a benchmark for oil purchases; the WTI known as Texas Light Sweet and the Brent, which is extracted in the North Sea. They are both affected by the (roughly) the same macro economical/industrial/financial shocks, but as they are not entirely similar, their associated risks -and therefore their prices- differs. If we support the hypothesis of long term relationship between these two assets, we could arbitrage during the short term whenever we see an abnormal low price of one of the crude oil by buying it and selling the overpriced one.
+For illustration, the crude oil market is dominated by two main grades which serves as a benchmark for oil purchases; the WTI known as Texas Light Sweet and the Brent, which is extracted in the North Sea. They are both affected by (roughly) the same macro economical/industrial/financial shocks, but as they are not entirely similar, their associated risks -and therefore their prices- differs. If we support the hypothesis of long term relationship between these two assets, we could arbitrage during the short term whenever we see an abnormal low price of one of the crude oil by buying it and selling the overpriced one.
 ## Theoretical background/ methodology
 The stochastic volatility model will be used as a background framework. We can model a continuous time process in order to model our assets’ price evolution:
+
+
+dS_t =mStdt + sSt  dWt
+S_t= S_0 e(m-1/2) * s^2)t + sWt)
+
+<img src="https://render.githubusercontent.com/render/math?math=dS_t =mStdt+sStdWt">
+
 Unlike (G)ARCH models where the variance is constant, we introduce a variance which follows a random process! dWt is a standard Brownian motion, also known as Wiener process. This stochastic integral can be solved using Ito’s lemma:
 ### Trend stationarity
 As we’ve just seen, there is two main components in the price of the asset; a drift mean, which is the deterministic part and the volatility, the stochastic one.
